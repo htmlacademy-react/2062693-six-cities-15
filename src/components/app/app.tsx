@@ -14,9 +14,9 @@ export default function App (): JSX.Element {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={AppRoute.Main} element={<PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}><Main placesFound={placesFound}/></PrivateRoute>} />
+        <Route path={AppRoute.Main} element={<Main placesFound={placesFound}/>} />
         <Route path={AppRoute.Login} element={<Login />} />
-        <Route path={AppRoute.Favorites} element={<Favorites />} />
+        <Route path={AppRoute.Favorites} element={<PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}><Favorites /></PrivateRoute>} />
         <Route path={AppRoute.Offer} element={<Offer />} />
         <Route path={AppRoute.NotFound} element={<NotFound404 />} />
       </Routes>
