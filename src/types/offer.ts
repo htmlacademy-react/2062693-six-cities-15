@@ -4,4 +4,5 @@ export type Offer = {
   image: string;
   price: number;
   type: 'Room' | 'Apartment';
+  rating: number;
 };
