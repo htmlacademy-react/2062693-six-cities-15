@@ -18,7 +18,6 @@ export default function ReviewForm() {
 
   const submitForm = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-    console.log(inputFields)
   };
 
     useEffect(() => {
