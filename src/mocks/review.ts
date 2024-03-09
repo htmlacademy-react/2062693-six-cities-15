@@ -1,6 +1,6 @@
 import {Review} from '../types/review.ts';
 
-const AVATAR_URL = process.env.AVATAR_URL;
+const AVATAR_URL = process.env.REACT_APP_AVATAR_URL;
 
 export const reviews: Review[] = [
   {
