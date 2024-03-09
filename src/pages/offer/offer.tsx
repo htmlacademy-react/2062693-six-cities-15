@@ -1,7 +1,7 @@
 import {JSX} from 'react';
 import {Review} from '../../types/review.ts';
 import {OfferType} from '../../types/offer.ts';
-import {Navigate, useParams} from 'react-router-dom';
+import {Link, Navigate, useParams} from 'react-router-dom';
 import {AppRoute, AuthorizationStatus} from '../../const.ts';
 import ReviewList from '../../components/reviews/review-list.tsx';
 import ReviewForm from '../../components/reviews/review-form.tsx';
@@ -27,9 +27,9 @@ export default function Offer ({offers, reviews, authorizationStatus}: OfferProp
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <a className="header__logo-link" href="main.html">
+              <Link to={AppRoute.Main} className="header__logo-link">
                 <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"/>
-              </a>
+              </Link>
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
