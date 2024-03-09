@@ -1,12 +1,14 @@
 import {JSX, PropsWithChildren} from 'react';
-import CityCard from '../../components/cards/city-card/city-card.tsx';
+import {OfferType} from '../../types/offer.ts';
+import OffersList from '../../components/cards/offers-list/offers-list.tsx';
 
 type PropTypes = PropsWithChildren<{
   placesFound: number;
+  offers: OfferType[];
 }>;
 
-export default function Main ({placesFound}: PropTypes): JSX.Element {
-  return(
+export default function Main({placesFound, offers}: PropTypes): JSX.Element {
+  return (
     <div className="page page--gray page--main">
       <header className="header">
         <div className="container">
@@ -95,13 +97,7 @@ export default function Main ({placesFound}: PropTypes): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                <CityCard/>
-                <CityCard/>
-                <CityCard/>
-                <CityCard/>
-                <CityCard/>
-              </div>
+              <OffersList offers={offers} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
