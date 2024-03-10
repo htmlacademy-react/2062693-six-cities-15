@@ -7,9 +7,7 @@ export default function ReviewForm() {
   const [submitDisabled, setSubmitDisabled] = useState(true);
 
   const setRating = (newRating: boolean[]) => {
-    setInputFields((prevState) => {
-      return {...prevState, rating: newRating};
-    });
+    setInputFields((prevState) => ({...prevState, rating: newRating}));
   };
 
   const onChangeMessageValue = (evt: ChangeEvent<HTMLTextAreaElement>) => {
@@ -38,4 +36,4 @@ export default function ReviewForm() {
       </div>
     </form>
   );
-};
+}
