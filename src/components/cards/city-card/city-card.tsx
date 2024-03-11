@@ -19,7 +19,7 @@ export default function CityCard({offer, setActive}: CityCardTypes): React.React
     <article className="cities__card place-card" onMouseEnter={onHoverHandler} onMouseLeave={onLeaveHandler}>
       <Link to={`/offer/${offer.id}`}>
         <div className="cities__image-wrapper place-card__image-wrapper">
-          <img className="place-card__image" src={offer.image} width="260" height="200" alt="Place image"/>
+          <img className="place-card__image" src={offer.previewImage} width="260" height="200" alt="Place image"/>
         </div>
         <div className="place-card__info">
           <div className="place-card__price-wrapper">
@@ -41,7 +41,7 @@ export default function CityCard({offer, setActive}: CityCardTypes): React.React
             </div>
           </div>
           <h2 className="place-card__name">
-            {offer.name}
+            {offer.title}
           </h2>
           <p className="place-card__type">{offer.type}</p>
         </div>

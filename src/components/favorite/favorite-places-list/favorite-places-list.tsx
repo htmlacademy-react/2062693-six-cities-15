@@ -8,10 +8,10 @@ type TFavoritePlacesList = {
 export default function FavoritePlacesList({offers}: TFavoritePlacesList) {
 
   const favoritePlaces = offers.reduce<string[]>((acc, offer) => {
-    if (acc.includes(offer.city)) {
+    if (acc.includes(offer.city.name)) {
       return acc;
     }
-    return [...acc, offer.city];
+    return [...acc, offer.city.name];
   }, []);
 
   return (
@@ -26,7 +26,7 @@ export default function FavoritePlacesList({offers}: TFavoritePlacesList) {
             </div>
           </div>
           <div className="favorites__places">
-            {offers.filter((offer) => offer.city === item).map((offer) => (<FavoriteCard key={offer.id} offer={offer}/>))}
+            {offers.filter((offer) => offer.city.name === item).map((offer) => (<FavoriteCard key={offer.id} offer={offer}/>))}
           </div>
         </li>))}
     </ul>

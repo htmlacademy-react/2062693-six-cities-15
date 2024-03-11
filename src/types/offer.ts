@@ -1,10 +1,16 @@
 export type OfferType = {
   id: number;
-  name: string;
-  image: string;
-  smallImage: string;
+  title: string;
+  type: 'Room' | 'Apartment' | 'House' | 'Hotel';
   price: number;
-  type: 'Room' | 'Apartment';
+  city: {
+    name: string;
+  };
+  previewImage: string;
+  isPremium: boolean;
+  isFavorite: boolean;
+  countBedrooms: number;
+  countAdults: number;
+  houseItems: string[];
   rating: number;
-  city: string;
 };

@@ -9,7 +9,7 @@ export default function FavoriteCard({offer}: TFavoriteOffer) {
     <article className="favorites__card place-card">
       <div className="favorites__image-wrapper place-card__image-wrapper">
         <a href="#">
-          <img className="place-card__image" src={offer.smallImage} width="150" height="110" alt="Place image"/>
+          <img className="place-card__image" src={offer.previewImage} width="150" height="110" alt="Place image"/>
         </a>
       </div>
       <div className="favorites__card-info place-card__info">
@@ -32,7 +32,7 @@ export default function FavoriteCard({offer}: TFavoriteOffer) {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{offer.name}</a>
+          <a href="#">{offer.title}</a>
         </h2>
         <p className="place-card__type">{offer.type}</p>
       </div>
