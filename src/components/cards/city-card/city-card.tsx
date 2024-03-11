@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 type CityCardTypes = {
   offer: OfferType;
   setActive: (id: number) => void;
-  activeOffer: number;
 };
 
 export default function CityCard({offer, setActive}: CityCardTypes): React.ReactElement {
