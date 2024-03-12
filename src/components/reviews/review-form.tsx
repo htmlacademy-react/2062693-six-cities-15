@@ -3,10 +3,10 @@ import ReviewRatingStars from './review-rating-stars.tsx';
 
 export default function ReviewForm() {
 
-  const [inputFields, setInputFields] = useState({rating: [false, false, false, false, false], message: ''});
+  const [inputFields, setInputFields] = useState({rating: 0, message: ''});
   const [submitDisabled, setSubmitDisabled] = useState(true);
 
-  const setRating = (newRating: boolean[]) => {
+  const setRating = (newRating: number) => {
     setInputFields((prevState) => ({...prevState, rating: newRating}));
   };
 
@@ -19,7 +19,7 @@ export default function ReviewForm() {
   };
 
   useEffect(() => {
-    setSubmitDisabled(inputFields.message.length < 50 || !inputFields.rating.includes(true));
+    setSubmitDisabled(inputFields.message.length < 50 || inputFields.rating === 0);
   }, [inputFields]);
 
   return (
