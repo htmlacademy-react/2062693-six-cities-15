@@ -5,9 +5,10 @@ import {Link} from 'react-router-dom';
 type CityCardTypes = {
   offer: OfferType;
   setActive: (id: number) => void;
+  cardType: 'cities' | 'favorites';
 };
 
-export default function CityCard({offer, setActive}: CityCardTypes): React.ReactElement {
+export default function CityCard({offer, setActive, cardType}: CityCardTypes): React.ReactElement {
 
   const onHoverHandler = () => {
     setActive(offer.id);
@@ -16,9 +17,9 @@ export default function CityCard({offer, setActive}: CityCardTypes): React.React
     setActive(0);
   };
   return (
-    <article className="cities__card place-card" onMouseEnter={onHoverHandler} onMouseLeave={onLeaveHandler}>
+    <article className={`${cardType}__card place-card`} onMouseEnter={onHoverHandler} onMouseLeave={onLeaveHandler}>
       <Link to={`/offer/${offer.id}`}>
-        <div className="cities__image-wrapper place-card__image-wrapper">
+        <div className={`${cardType}__image-wrapper place-card__image-wrapper`}>
           <img className="place-card__image" src={offer.previewImage} width="260" height="200" alt="Place image"/>
         </div>
         <div className="place-card__info">

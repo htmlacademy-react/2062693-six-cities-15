@@ -7,9 +7,11 @@ import {AppRoute} from '../../const.ts';
 type PropTypes = PropsWithChildren<{
   placesFound: number;
   offers: OfferType[];
+  setActiveOffer: (activeId: number) => void;
 }>;
 
-export default function Main({placesFound, offers}: PropTypes): JSX.Element {
+export default function Main({placesFound, offers, setActiveOffer}: PropTypes): JSX.Element {
+
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -99,7 +101,7 @@ export default function Main({placesFound, offers}: PropTypes): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <OffersList offers={offers} />
+              <OffersList offers={offers} setActiveOffer={setActiveOffer}/>
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>

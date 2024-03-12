@@ -1,11 +1,12 @@
 import {OfferType} from '../../../types/offer.ts';
-import FavoriteCard from '../favorite-card/favorite-card.tsx';
+import CityCard from '../../cards/city-card/city-card.tsx';
 
 type TFavoritePlacesList = {
   offers: OfferType[];
+  setActiveOffer: (activeId: number) => void;
 };
 
-export default function FavoritePlacesList({offers}: TFavoritePlacesList) {
+export default function FavoritePlacesList({offers, setActiveOffer}: TFavoritePlacesList) {
 
   const favoritePlaces = offers.reduce<string[]>((acc, offer) => {
     if (acc.includes(offer.city.name)) {
@@ -26,7 +27,7 @@ export default function FavoritePlacesList({offers}: TFavoritePlacesList) {
             </div>
           </div>
           <div className="favorites__places">
-            {offers.filter((offer) => offer.city.name === item).map((offer) => (<FavoriteCard key={offer.id} offer={offer}/>))}
+            {offers.filter((offer) => offer.city.name === item).map((offer) => (<CityCard key={offer.id} offer={offer} setActive={setActiveOffer} cardType={'favorites'}/>))}
           </div>
         </li>))}
     </ul>

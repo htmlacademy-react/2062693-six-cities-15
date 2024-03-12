@@ -1,4 +1,4 @@
-import {JSX} from 'react';
+import {JSX, useState} from 'react';
 import Main from '../../pages/main/main.tsx';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Login from '../../pages/login/login.tsx';
@@ -18,12 +18,14 @@ type AppPropTypes = {
 const placesFound: number = 95;
 
 export default function App ({offers, reviews}: AppPropTypes): JSX.Element {
+
+  const [activeOffer, setActiveOffer] = useState(0);
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={AppRoute.Main} element={<Main placesFound={placesFound} offers={offers}/>} />
+        <Route path={AppRoute.Main} element={<Main placesFound={placesFound} offers={offers} setActiveOffer={setActiveOffer}/>} />
         <Route path={AppRoute.Login} element={<Login />} />
-        <Route path={AppRoute.Favorites} element={<PrivateRoute authorizationStatus={AuthorizationStatus.Auth}><Favorites offers={offers} /></PrivateRoute>} />
+        <Route path={AppRoute.Favorites} element={<PrivateRoute authorizationStatus={AuthorizationStatus.Auth}><Favorites offers={offers} setActiveOffer={setActiveOffer}/></PrivateRoute>} />
         <Route path={AppRoute.Offer} element={<Offer reviews={reviews} offers={offers} authorizationStatus={AuthorizationStatus.Auth}/>} />
         <Route path={AppRoute.NotFound} element={<NotFound404 />} />
       </Routes>

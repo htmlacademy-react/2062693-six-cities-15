@@ -6,9 +6,10 @@ import {AppRoute} from '../../const.ts';
 
 type TFavorites = {
   offers: OfferType[];
+  setActiveOffer: (activeId: number) => void;
 };
 
-export default function Favorites ({offers}: TFavorites): JSX.Element {
+export default function Favorites ({offers, setActiveOffer}: TFavorites): JSX.Element {
   return(
     <div className="page">
       <header className="header">
@@ -44,7 +45,7 @@ export default function Favorites ({offers}: TFavorites): JSX.Element {
         <div className="page__favorites-container container">
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
-            <FavoritePlacesList offers={offers} />
+            <FavoritePlacesList offers={offers} setActiveOffer={setActiveOffer}/>
           </section>
         </div>
       </main>
