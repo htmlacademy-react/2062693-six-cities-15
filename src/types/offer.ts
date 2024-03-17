@@ -1,3 +1,5 @@
+import {LocationType} from './location.ts';
+
 export type OfferType = {
   id: number;
   title: string;
@@ -6,10 +8,7 @@ export type OfferType = {
   city: {
     name: string;
   };
-  location: {
-    latitude: number;
-    longitude: number;
-  };
+  location: LocationType;
   previewImage: string;
   isPremium: boolean;
   isFavorite: boolean;
