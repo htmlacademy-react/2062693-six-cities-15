@@ -6,6 +6,10 @@ export type OfferType = {
   city: {
     name: string;
   };
+  location: {
+    latitude: number;
+    longitude: number;
+  };
   previewImage: string;
   isPremium: boolean;
   isFavorite: boolean;

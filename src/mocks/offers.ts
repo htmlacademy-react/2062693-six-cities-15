@@ -11,6 +11,10 @@ export const offers: OfferType[] = [
     city: {
       name: 'Amsterdam'
     },
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198
+    },
     isPremium: false,
     isFavorite: false,
     countBedrooms: 1,
@@ -26,6 +30,10 @@ export const offers: OfferType[] = [
     rating: 3.9,
     city: {
       name: 'Cologne'
+    },
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198
     },
     isPremium: false,
     isFavorite: false,
@@ -43,6 +51,10 @@ export const offers: OfferType[] = [
     city: {
       name: 'Amsterdam'
     },
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198
+    },
     isPremium: true,
     isFavorite: false,
     countBedrooms: 3,
@@ -59,6 +71,10 @@ export const offers: OfferType[] = [
     city: {
       name: 'Amsterdam'
     },
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198
+    },
     isPremium: true,
     isFavorite: false,
     countBedrooms: 4,
@@ -74,6 +90,10 @@ export const offers: OfferType[] = [
     rating: 4.2,
     city: {
       name: 'Cologne'
+    },
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198
     },
     isPremium: false,
     isFavorite: false,
