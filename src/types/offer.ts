@@ -7,6 +7,7 @@ export type OfferType = {
   price: number;
   city: {
     name: string;
+    location: LocationType;
   };
   location: LocationType;
   previewImage: string;
