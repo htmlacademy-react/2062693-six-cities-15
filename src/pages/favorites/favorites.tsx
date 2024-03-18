@@ -10,6 +10,7 @@ type TFavorites = {
 
 export default function Favorites ({offers}: TFavorites): JSX.Element {
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [activeOffer, setActiveOffer] = useState(0);
   return(
     <div className="page">
