@@ -1,4 +1,4 @@
-import {JSX} from 'react';
+import {JSX, useState} from 'react';
 import {OfferType} from '../../types/offer.ts';
 import FavoritePlacesList from '../../components/favorite/favorite-places-list/favorite-places-list.tsx';
 import {Link} from 'react-router-dom';
@@ -6,10 +6,11 @@ import {AppRoute} from '../../const.ts';
 
 type TFavorites = {
   offers: OfferType[];
-  setActiveOffer: (activeId: number) => void;
 };
 
-export default function Favorites ({offers, setActiveOffer}: TFavorites): JSX.Element {
+export default function Favorites ({offers}: TFavorites): JSX.Element {
+
+  const [activeOffer, setActiveOffer] = useState(0);
   return(
     <div className="page">
       <header className="header">

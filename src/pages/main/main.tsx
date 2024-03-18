@@ -1,17 +1,21 @@
-import {JSX, PropsWithChildren} from 'react';
+import {JSX, PropsWithChildren, useState} from 'react';
 import {OfferType} from '../../types/offer.ts';
 import OffersList from '../../components/cards/offers-list/offers-list.tsx';
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../../const.ts';
+import Map from '../../components/map/map.tsx';
+import {LocationType} from '../../types/location.ts';
+
+const CURRENT_CITY_LOCATION: LocationType = {latitude: 52.3909553943508, longitude: 4.85309666406198};
 
 type PropTypes = PropsWithChildren<{
   placesFound: number;
   offers: OfferType[];
-  setActiveOffer: (activeId: number) => void;
 }>;
 
-export default function Main({placesFound, offers, setActiveOffer}: PropTypes): JSX.Element {
+export default function Main({placesFound, offers}: PropTypes): JSX.Element {
 
+  const [activeOfferId, setActiveOfferId] = useState(0);
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -101,10 +105,10 @@ export default function Main({placesFound, offers, setActiveOffer}: PropTypes): 
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <OffersList offers={offers} setActiveOffer={setActiveOffer}/>
+              <OffersList offers={offers} setActiveOffer={setActiveOfferId}/>
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map"></section>
+              <Map activeOfferId={activeOfferId} offers={offers} cityLocation={CURRENT_CITY_LOCATION}/>
             </div>
           </div>
         </div>
