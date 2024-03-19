@@ -1,4 +1,4 @@
-import {JSX, useState} from 'react';
+import {JSX} from 'react';
 import {OfferType} from '../../types/offer.ts';
 import FavoritePlacesList from '../../components/favorite/favorite-places-list/favorite-places-list.tsx';
 import {Link} from 'react-router-dom';
@@ -10,7 +10,6 @@ type TFavorites = {
 
 export default function Favorites ({offers}: TFavorites): JSX.Element {
 
-  const [, setActiveOffer] = useState(0);
   return(
     <div className="page">
       <header className="header">
@@ -46,7 +45,7 @@ export default function Favorites ({offers}: TFavorites): JSX.Element {
         <div className="page__favorites-container container">
           <section className="favorites">
             <h1 className="favorites__title">Saved listing</h1>
-            <FavoritePlacesList offers={offers} setActiveOffer={setActiveOffer}/>
+            <FavoritePlacesList offers={offers} />
           </section>
         </div>
       </main>
