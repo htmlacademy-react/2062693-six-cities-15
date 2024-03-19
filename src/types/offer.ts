@@ -1,3 +1,5 @@
+import {LocationType} from './location.ts';
+
 export type OfferType = {
   id: number;
   title: string;
@@ -5,7 +7,9 @@ export type OfferType = {
   price: number;
   city: {
     name: string;
+    location: LocationType;
   };
+  location: LocationType;
   previewImage: string;
   isPremium: boolean;
   isFavorite: boolean;

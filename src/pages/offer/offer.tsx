@@ -118,6 +118,7 @@ export default function Offer ({offers, reviews, authorizationStatus}: OfferProp
                 <h2 className="offer__inside-title">What&apos;s inside</h2>
                 <ul className="offer__inside-list">
                   {currentOffer.houseItems.map((item, itemId) => (
+                    // eslint-disable-next-line react/no-array-index-key
                     <li key={itemId} className="offer__inside-item">
                       {item}
                     </li>

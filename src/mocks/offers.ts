@@ -9,7 +9,17 @@ export const offers: OfferType[] = [
     type: 'Apartment',
     rating: 4.9,
     city: {
-      name: 'Amsterdam'
+      name: 'Amsterdam',
+      location: {
+        latitude: 52.3909553943508,
+        longitude: 4.85309666406198,
+        zoom: 10
+      }
+    },
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
+      zoom: 10
     },
     isPremium: false,
     isFavorite: false,
@@ -25,7 +35,17 @@ export const offers: OfferType[] = [
     type: 'Room',
     rating: 3.9,
     city: {
-      name: 'Cologne'
+      name: 'Cologne',
+      location: {
+        latitude: 52.3909553943508,
+        longitude: 4.85309666406198,
+        zoom: 10
+      }
+    },
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198,
+      zoom: 10
     },
     isPremium: false,
     isFavorite: false,
@@ -41,7 +61,17 @@ export const offers: OfferType[] = [
     type: 'Apartment',
     rating: 4.8,
     city: {
-      name: 'Amsterdam'
+      name: 'Amsterdam',
+      location: {
+        latitude: 52.3909553943508,
+        longitude: 4.85309666406198,
+        zoom: 10
+      }
+    },
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198,
+      zoom: 10
     },
     isPremium: true,
     isFavorite: false,
@@ -57,7 +87,17 @@ export const offers: OfferType[] = [
     type: 'Apartment',
     rating: 5,
     city: {
-      name: 'Amsterdam'
+      name: 'Amsterdam',
+      location: {
+        latitude: 52.3909553943508,
+        longitude: 4.85309666406198,
+        zoom: 10
+      }
+    },
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
+      zoom: 10
     },
     isPremium: true,
     isFavorite: false,
@@ -73,7 +113,17 @@ export const offers: OfferType[] = [
     type: 'Room',
     rating: 4.2,
     city: {
-      name: 'Cologne'
+      name: 'Cologne',
+      location: {
+        latitude: 52.3909553943508,
+        longitude: 4.85309666406198,
+        zoom: 10
+      }
+    },
+    location: {
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
+      zoom: 10
     },
     isPremium: false,
     isFavorite: false,
