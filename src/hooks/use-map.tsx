@@ -13,7 +13,7 @@ export default function useMap(mapRef: MutableRefObject<HTMLElement | null>, loc
           lat: location.latitude,
           lng: location.longitude
         },
-        zoom: 10
+        zoom: location.zoom
       });
 
       const layer = new TileLayer(

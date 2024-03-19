@@ -12,12 +12,14 @@ export const offers: OfferType[] = [
       name: 'Amsterdam',
       location: {
         latitude: 52.3909553943508,
-        longitude: 4.85309666406198
+        longitude: 4.85309666406198,
+        zoom: 10
       }
     },
     location: {
       latitude: 52.3909553943508,
-      longitude: 4.85309666406198
+      longitude: 4.85309666406198,
+      zoom: 10
     },
     isPremium: false,
     isFavorite: false,
@@ -36,12 +38,14 @@ export const offers: OfferType[] = [
       name: 'Cologne',
       location: {
         latitude: 52.3909553943508,
-        longitude: 4.85309666406198
+        longitude: 4.85309666406198,
+        zoom: 10
       }
     },
     location: {
       latitude: 52.3909553943508,
-      longitude: 4.929309666406198
+      longitude: 4.929309666406198,
+      zoom: 10
     },
     isPremium: false,
     isFavorite: false,
@@ -60,12 +64,14 @@ export const offers: OfferType[] = [
       name: 'Amsterdam',
       location: {
         latitude: 52.3909553943508,
-        longitude: 4.85309666406198
+        longitude: 4.85309666406198,
+        zoom: 10
       }
     },
     location: {
       latitude: 52.3909553943508,
-      longitude: 4.929309666406198
+      longitude: 4.929309666406198,
+      zoom: 10
     },
     isPremium: true,
     isFavorite: false,
@@ -84,12 +90,14 @@ export const offers: OfferType[] = [
       name: 'Amsterdam',
       location: {
         latitude: 52.3909553943508,
-        longitude: 4.85309666406198
+        longitude: 4.85309666406198,
+        zoom: 10
       }
     },
     location: {
       latitude: 52.3909553943508,
-      longitude: 4.85309666406198
+      longitude: 4.85309666406198,
+      zoom: 10
     },
     isPremium: true,
     isFavorite: false,
@@ -108,12 +116,14 @@ export const offers: OfferType[] = [
       name: 'Cologne',
       location: {
         latitude: 52.3909553943508,
-        longitude: 4.85309666406198
+        longitude: 4.85309666406198,
+        zoom: 10
       }
     },
     location: {
       latitude: 52.3909553943508,
-      longitude: 4.85309666406198
+      longitude: 4.85309666406198,
+      zoom: 10
     },
     isPremium: false,
     isFavorite: false,
