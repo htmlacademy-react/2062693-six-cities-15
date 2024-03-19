@@ -11,14 +11,17 @@ type TMap = PropsWithChildren<{
   offers: OfferType[];
 }>
 
+const URL_MARKER_DEFAULT = 'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/pin.svg';
+const URL_MARKER_CURRENT = 'https://assets.htmlacademy.ru/content/intensive/javascript-1/demo/interactive-map/main-pin.svg';
+
 const defaultCustomIcon = new Icon({
-  iconUrl: process.env.REACT_APP_URL_MARKER_DEFAULT,
+  iconUrl: URL_MARKER_DEFAULT,
   iconSize: [40, 40],
   iconAnchor: [20, 40]
 });
 
 const currentCustomIcon = new Icon({
-  iconUrl: process.env.REACT_APP_URL_MARKER_CURRENT,
+  iconUrl: URL_MARKER_CURRENT,
   iconSize: [40, 40],
   iconAnchor: [20, 40]
 });
