@@ -6,7 +6,7 @@ import {AppRoute} from '../../const.ts';
 import Map from '../../components/map/map.tsx';
 import {LocationType} from '../../types/location.ts';
 
-const CURRENT_CITY_LOCATION: LocationType = {latitude: 52.3909553943508, longitude: 4.85309666406198};
+const CURRENT_CITY_LOCATION: LocationType = {latitude: 52.3909553943508, longitude: 4.85309666406198, zoom: 10};
 
 type PropTypes = PropsWithChildren<{
   placesFound: number;
