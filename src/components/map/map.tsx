@@ -61,7 +61,7 @@ export default function Map({activeOfferId, offers, cityLocation}: TMap): JSX.El
         duration: 2
       });
     }
-  }, [cityLocation]);
+  }, [map, cityLocation]);
 
   return (
     <section className="cities__map map" ref={mapRef}></section>

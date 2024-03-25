@@ -12,6 +12,7 @@ export default function CityList(): JSX.Element {
       <div className="tabs">
         <section className="locations container">
           <ul className="locations__list tabs__list">
+            {/* eslint-disable-next-line react/no-array-index-key */}
             {citiesNames.map((item, id) => <CityItem key={`citi-name-${id}`} cityName={item.name} isActive={item.name === currentCity.name} />)}
           </ul>
         </section>
