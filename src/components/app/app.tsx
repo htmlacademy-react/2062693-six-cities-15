@@ -15,14 +15,12 @@ type AppPropTypes = {
   reviews: Review[];
 };
 
-const placesFound: number = 95;
-
 export default function App ({offers, reviews}: AppPropTypes): JSX.Element {
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={AppRoute.Main} element={<Main placesFound={placesFound} offers={offers} />} />
+        <Route path={AppRoute.Main} element={<Main />} />
         <Route path={AppRoute.Login} element={<Login />} />
         <Route path={AppRoute.Favorites} element={<PrivateRoute authorizationStatus={AuthorizationStatus.Auth}><Favorites offers={offers}/></PrivateRoute>} />
         <Route path={AppRoute.Offer} element={<Offer reviews={reviews} offers={offers} authorizationStatus={AuthorizationStatus.Auth}/>} />

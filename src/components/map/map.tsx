@@ -53,6 +53,16 @@ export default function Map({activeOfferId, offers, cityLocation}: TMap): JSX.El
     }
   }, [mapRef, activeOfferId, offers, map]);
 
+  useEffect(() => {
+    if (mapRef.current && map) {
+      map.setZoom(cityLocation.zoom);
+      map.panTo([cityLocation.latitude, cityLocation.longitude], {
+        animate: true,
+        duration: 2
+      });
+    }
+  }, [cityLocation]);
+
   return (
     <section className="cities__map map" ref={mapRef}></section>
   );
