@@ -1,14 +1,12 @@
 import {LocationType} from './location.ts';
+import {City} from './city.ts';
 
 export type OfferType = {
   id: number;
   title: string;
   type: 'Room' | 'Apartment' | 'House' | 'Hotel';
   price: number;
-  city: {
-    name: string;
-    location: LocationType;
-  };
+  city: City;
   location: LocationType;
   previewImage: string;
   isPremium: boolean;
