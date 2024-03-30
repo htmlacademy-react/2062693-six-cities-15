@@ -1,4 +1,4 @@
-import {JSX} from 'react';
+import {JSX, useEffect} from 'react';
 import Main from '../../pages/main/main.tsx';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Login from '../../pages/login/login.tsx';
@@ -9,22 +9,32 @@ import PrivateRoute from '../private-route/private-route.tsx';
 import {Review} from '../../types/review.ts';
 import {OfferType} from '../../types/offer.ts';
 import Offer from '../../pages/offer/offer.tsx';
+import {store} from '../../storage';
+import {fetchOffers} from '../../storage/api-actions.ts';
 
 type AppPropTypes = {
   offers: OfferType[];
   reviews: Review[];
 };
 
-export default function App ({offers, reviews}: AppPropTypes): JSX.Element {
+
+export default function App({offers, reviews}: AppPropTypes): JSX.Element {
+
+  useEffect(() => {
+    store.dispatch(fetchOffers());
+  }, []);
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={AppRoute.Main} element={<Main />} />
-        <Route path={AppRoute.Login} element={<Login />} />
-        <Route path={AppRoute.Favorites} element={<PrivateRoute authorizationStatus={AuthorizationStatus.Auth}><Favorites offers={offers}/></PrivateRoute>} />
-        <Route path={AppRoute.Offer} element={<Offer reviews={reviews} offers={offers} authorizationStatus={AuthorizationStatus.Auth}/>} />
-        <Route path={AppRoute.NotFound} element={<NotFound404 />} />
+        <Route path={AppRoute.Main} element={<Main/>}/>
+        <Route path={AppRoute.Login} element={<Login/>}/>
+        <Route path={AppRoute.Favorites}
+               element={<PrivateRoute authorizationStatus={AuthorizationStatus.Auth}><Favorites
+                 offers={offers}/></PrivateRoute>}/>
+        <Route path={AppRoute.Offer}
+               element={<Offer reviews={reviews} offers={offers} authorizationStatus={AuthorizationStatus.Auth}/>}/>
+        <Route path={AppRoute.NotFound} element={<NotFound404/>}/>
       </Routes>
     </BrowserRouter>
   );
