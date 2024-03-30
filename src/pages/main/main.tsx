@@ -10,8 +10,9 @@ export default function Main(): JSX.Element {
 
   const offers = useAppSelector((state) => state.offers);
   const currenCity = useAppSelector((state) => state.city);
+  const filteredOffers = offers.filter((offer) => offer.city.name === currenCity.name);
   const [activeOfferId, setActiveOfferId] = useState(0);
-  const placesFound = offers.length;
+  const placesFound = filteredOffers.length;
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -65,7 +66,7 @@ export default function Main(): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <OffersList offers={offers} setActiveOffer={setActiveOfferId}/>
+              <OffersList offers={filteredOffers} setActiveOffer={setActiveOfferId}/>
             </section>
             <div className="cities__right-section">
               <Map activeOfferId={activeOfferId} offers={offers} cityLocation={currenCity.location}/>

@@ -1,5 +1,5 @@
 import {PropsWithChildren} from 'react';
-import {changeCity, loadOffers} from '../../storage/actions.ts';
+import {changeCity} from '../../storage/actions.ts';
 import {useAppDispatch} from '../../hooks';
 
 type TCityItem = PropsWithChildren<{
@@ -9,13 +9,12 @@ type TCityItem = PropsWithChildren<{
 
 export default function CityItem({cityName, isActive}: TCityItem) {
   const dispatch = useAppDispatch();
-  const cityChangeHanle = () => {
+  const cityChangeHandle = () => {
     dispatch(changeCity(cityName));
-    dispatch(loadOffers());
   };
   return (
     <li className="locations__item">
-      <a className={`locations__item-link tabs__item ${isActive && 'tabs__item--active'}`} href="#" onClick={cityChangeHanle}>
+      <a className={`locations__item-link tabs__item ${isActive && 'tabs__item--active'}`} href="#" onClick={cityChangeHandle}>
         <span>{cityName}</span>
       </a>
     </li>

@@ -2,6 +2,7 @@ import {City} from '../types/city.ts';
 import {createReducer} from '@reduxjs/toolkit';
 import {changeCity, loadOffers} from './actions.ts';
 import {OfferType} from '../types/offer.ts';
+import {getCityByName} from '../offers-data.ts';
 
 const CURRENT_CITY: City = {
   name: 'Paris',
@@ -25,7 +26,7 @@ const initialState: TInitialState = {
 export const reducer = createReducer(initialState, (builder) => {
   builder
     .addCase(changeCity, (state, action) => {
-      state.city = action.payload;
+      state.city = getCityByName(action.payload);
     })
     .addCase(loadOffers, (state, action) => {
       state.offers = action.payload;
