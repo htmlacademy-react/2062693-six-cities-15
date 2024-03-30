@@ -1,6 +1,6 @@
 import {City} from '../types/city.ts';
 import {createReducer} from '@reduxjs/toolkit';
-import {changeCity, loadOffers} from './actions.ts';
+import {changeCity, loadOffers, setOffersLoadingScreen} from './actions.ts';
 import {OfferType} from '../types/offer.ts';
 import {getCityByName} from '../offers-data.ts';
 
@@ -16,11 +16,13 @@ const CURRENT_CITY: City = {
 type TInitialState = {
   city: City;
   offers: OfferType[];
+  isLoadingOffers: boolean;
 }
 
 const initialState: TInitialState = {
   city: CURRENT_CITY,
-  offers: []
+  offers: [],
+  isLoadingOffers: false,
 };
 
 export const reducer = createReducer(initialState, (builder) => {
@@ -30,5 +32,8 @@ export const reducer = createReducer(initialState, (builder) => {
     })
     .addCase(loadOffers, (state, action) => {
       state.offers = action.payload;
+    })
+    .addCase(setOffersLoadingScreen, (state, action) => {
+      state.isLoadingOffers = action.payload;
     });
 });
