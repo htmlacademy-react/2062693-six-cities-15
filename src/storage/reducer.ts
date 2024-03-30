@@ -3,15 +3,7 @@ import {createReducer} from '@reduxjs/toolkit';
 import {changeCity, loadOffers, setOffersLoadingScreen} from './actions.ts';
 import {OfferType} from '../types/offer.ts';
 import {getCityByName} from '../offers-data.ts';
-
-const CURRENT_CITY: City = {
-  name: 'Paris',
-  location: {
-    latitude: 48.85341,
-    longitude: 2.3488,
-    zoom: 10
-  }
-};
+import {InitialCity} from '../const.ts';
 
 type TInitialState = {
   city: City;
@@ -20,7 +12,7 @@ type TInitialState = {
 }
 
 const initialState: TInitialState = {
-  city: CURRENT_CITY,
+  city: InitialCity,
   offers: [],
   isLoadingOffers: false,
 };
