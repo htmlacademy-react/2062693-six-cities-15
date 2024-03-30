@@ -1,6 +1,6 @@
 import {PropsWithChildren} from 'react';
-import {useDispatch} from 'react-redux';
 import {changeCity, loadOffers} from '../../storage/actions.ts';
+import {useAppDispatch} from '../../hooks';
 
 type TCityItem = PropsWithChildren<{
   cityName: string;
@@ -8,7 +8,7 @@ type TCityItem = PropsWithChildren<{
 }>
 
 export default function CityItem({cityName, isActive}: TCityItem) {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const cityChangeHanle = () => {
     dispatch(changeCity(cityName));
     dispatch(loadOffers());
