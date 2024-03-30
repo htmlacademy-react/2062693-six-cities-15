@@ -1,7 +1,7 @@
 import {City} from '../types/city.ts';
 import {createReducer} from '@reduxjs/toolkit';
 import {changeCity, loadOffers} from './actions.ts';
-import {getCityByName, getOffersByCity} from '../offers-data.ts';
+import {OfferType} from '../types/offer.ts';
 
 const CURRENT_CITY: City = {
   name: 'Paris',
@@ -12,17 +12,22 @@ const CURRENT_CITY: City = {
   }
 };
 
-const initialState = {
+type TInitialState = {
+  city: City;
+  offers: OfferType[];
+}
+
+const initialState: TInitialState = {
   city: CURRENT_CITY,
-  offers: getOffersByCity(CURRENT_CITY)
+  offers: []
 };
 
 export const reducer = createReducer(initialState, (builder) => {
   builder
     .addCase(changeCity, (state, action) => {
-      state.city = getCityByName(action.payload);
+      state.city = action.payload;
     })
-    .addCase(loadOffers, (state) => {
-      state.offers = getOffersByCity(state.city);
+    .addCase(loadOffers, (state, action) => {
+      state.offers = action.payload;
     });
 });
