@@ -1,20 +1,20 @@
 import {City} from '../types/city.ts';
 import {createReducer} from '@reduxjs/toolkit';
-import {changeCity, loadOffers} from './actions.ts';
-import {getCityByName, getOffersByCity} from '../offers-data.ts';
+import {changeCity, loadOffers, setOffersLoadingScreen} from './actions.ts';
+import {OfferType} from '../types/offer.ts';
+import {getCityByName} from '../offers-data.ts';
+import {InitialCity} from '../const.ts';
 
-const CURRENT_CITY: City = {
-  name: 'Paris',
-  location: {
-    latitude: 48.85341,
-    longitude: 2.3488,
-    zoom: 10
-  }
-};
+type TInitialState = {
+  city: City;
+  offers: OfferType[];
+  isLoadingOffers: boolean;
+}
 
-const initialState = {
-  city: CURRENT_CITY,
-  offers: getOffersByCity(CURRENT_CITY)
+const initialState: TInitialState = {
+  city: InitialCity,
+  offers: [],
+  isLoadingOffers: false,
 };
 
 export const reducer = createReducer(initialState, (builder) => {
@@ -22,7 +22,10 @@ export const reducer = createReducer(initialState, (builder) => {
     .addCase(changeCity, (state, action) => {
       state.city = getCityByName(action.payload);
     })
-    .addCase(loadOffers, (state) => {
-      state.offers = getOffersByCity(state.city);
+    .addCase(loadOffers, (state, action) => {
+      state.offers = action.payload;
+    })
+    .addCase(setOffersLoadingScreen, (state, action) => {
+      state.isLoadingOffers = action.payload;
     });
 });

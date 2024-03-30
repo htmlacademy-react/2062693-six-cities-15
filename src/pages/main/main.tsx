@@ -5,13 +5,16 @@ import {AppRoute} from '../../const.ts';
 import Map from '../../components/map/map.tsx';
 import {useAppSelector} from '../../hooks';
 import CityList from '../../components/city/city-list.tsx';
+import Spinner from '../../components/spinner/spinner.tsx';
 
 export default function Main(): JSX.Element {
 
   const offers = useAppSelector((state) => state.offers);
   const currenCity = useAppSelector((state) => state.city);
+  const isLoadingOffers = useAppSelector((state) => state.isLoadingOffers);
+  const filteredOffers = offers.filter((offer) => offer.city.name === currenCity.name);
   const [activeOfferId, setActiveOfferId] = useState(0);
-  const placesFound = offers.length;
+  const placesFound = filteredOffers.length;
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -65,7 +68,8 @@ export default function Main(): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <OffersList offers={offers} setActiveOffer={setActiveOfferId}/>
+              {isLoadingOffers && <Spinner />}
+              {!isLoadingOffers && <OffersList offers={filteredOffers} setActiveOffer={setActiveOfferId}/>}
             </section>
             <div className="cities__right-section">
               <Map activeOfferId={activeOfferId} offers={offers} cityLocation={currenCity.location}/>
