@@ -30,8 +30,7 @@ export default function App({offers, reviews}: AppPropTypes): JSX.Element {
         <Route path={AppRoute.Main} element={<Main/>}/>
         <Route path={AppRoute.Login} element={<Login/>}/>
         <Route path={AppRoute.Favorites} element={<PrivateRoute><Favorites offers={offers}/></PrivateRoute>}/>
-        <Route path={AppRoute.Offer}
-               element={<Offer reviews={reviews} offers={offers} authorizationStatus={AuthorizationStatus.Auth}/>}/>
+        <Route path={AppRoute.Offer} element={<Offer reviews={reviews} offers={offers} authorizationStatus={AuthorizationStatus.Auth}/>}/>
         <Route path={AppRoute.NotFound} element={<NotFound404/>}/>
       </Routes>
     </BrowserRouter>
