@@ -16,6 +16,7 @@ export enum AuthorizationStatus {
 
 export enum ApiRoute {
   Offers = '/offers',
+  Login = '/login',
 }
 
 export const CitiesNames: City[] = [
